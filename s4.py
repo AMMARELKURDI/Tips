@@ -57,7 +57,7 @@ with c2:
 with c3:
     if category == None or Numerical==None:
         category,Numerical="sex","tip"
-    st.text(f"{category} Vs {Numerical}")
+    st.text(f"{category} Vs {Numerical} and Total Bill")
     
     #fig=px.pie(data_frame=df,names=category,values=Numerical,hole=0.4)
     ddf=df.groupby(category)[Numerical].mean().reset_index()
@@ -67,12 +67,12 @@ with c3:
                 base=[i*-1  for i  in ddf[Numerical]],
                 marker_color='crimson',
                 orientation="h",
-                name='expenses'))
-    fig.add_trace(go.Bar(y=ddf[category], x=ddf[Numerical],
+                name=f'{Numerical}'))
+    fig.add_trace(go.Bar(y=ddf[category], x=ddf['total_bill'],
                 base=0,
                 orientation="h",
                 marker_color='lightslategrey',
-                name='revenue'
+                name='Total'
                 ))
 
     fig.update_layout(barmode="stack")
