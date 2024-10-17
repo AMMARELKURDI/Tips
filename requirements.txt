@@ -1,3 +1,6 @@
+matplotlib==3.7.1
+matplotlib==3.8.0
+matplotlib==3.8.4
 numpy==1.24.3
 pandas==1.5.3
 plotly==5.19.0
@@ -8,4 +11,8 @@ plotly_express==0.4.0
 plotly_express==0.4.1
 seaborn==0.13.2
 streamlit==1.22.0
-
+streamlit==1.38.0
+streamlit==1.32.0
+streamlit==1.39.0
+pip==24.0
+setuptools== 69.5.1
