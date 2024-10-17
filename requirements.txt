@@ -5,4 +5,5 @@ plotly==5.24.1
 plotly_express==0.4.1
 seaborn==0.13.2
 streamlit
+plotly-utils==0.0.3
 
