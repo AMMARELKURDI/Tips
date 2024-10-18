@@ -63,8 +63,9 @@ with c3:
     ddf=df.groupby(category)[['tip','total_bill']].mean().reset_index()
 
     fig = go.Figure()
-    fig.add_trace(go.Bar(y=ddf[category], x=ddf['tip'],
-                base=[i*-1  for i  in ddf['tip']],
+    fig.add_trace(go.Bar(y=ddf[category], x=ddf['tip']*-1,
+                #base=[i*-1  for i  in ddf['tip']],
+                base=0,
                 marker_color='crimson',
                 orientation="h",
                 name='Tips'))
