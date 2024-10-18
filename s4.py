@@ -48,15 +48,15 @@ with c1:
     st.plotly_chart(fig,use_container_width=True)
 
 with c2:
-    if category == None or Numerical==None:
-        category,Numerical="sex","tip"
+    if category == None:
+        category="sex"
+    if Numerical == None:
+        Numerical="tip"
     st.text(f"{category} Vs {Numerical}")
     
     fig=px.pie(data_frame=df,names=category,values=Numerical)
     st.plotly_chart(fig,use_container_width=True)
 with c3:
-    if category == None:
-        category="sex"
     st.text(f"{category} Vs Tips and Total Bill")
     
     #fig=px.pie(data_frame=df,names=category,values=Numerical,hole=0.4)
