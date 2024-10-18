@@ -55,24 +55,24 @@ with c2:
     fig=px.pie(data_frame=df,names=category,values=Numerical)
     st.plotly_chart(fig,use_container_width=True)
 with c3:
-    if category == None or Numerical==None:
-        category,Numerical="sex","tip"
-    st.text(f"{category} Vs {Numerical} and Total Bill")
+    if category == None:
+        category="sex"
+    st.text(f"{category} Vs Tips and Total Bill")
     
     #fig=px.pie(data_frame=df,names=category,values=Numerical,hole=0.4)
-    ddf=df.groupby(category)[Numerical].mean().reset_index()
+    ddf=df.groupby(category)[['tip','total_bill']].mean().reset_index()
 
     fig = go.Figure()
-    fig.add_trace(go.Bar(y=ddf[category], x=ddf[Numerical],
-                base=[i*-1  for i  in ddf[Numerical]],
+    fig.add_trace(go.Bar(y=ddf[category], x=ddf['tip'],
+                base=[i*-1  for i  in ddf['tip']],
                 marker_color='crimson',
                 orientation="h",
-                name=f'{Numerical}'))
+                name='Tips'))
     fig.add_trace(go.Bar(y=ddf[category], x=ddf['total_bill'],
                 base=0,
                 orientation="h",
                 marker_color='lightslategrey',
-                name='Total'
+                name='Total Bill'
                 ))
 
     fig.update_layout(barmode="stack")
